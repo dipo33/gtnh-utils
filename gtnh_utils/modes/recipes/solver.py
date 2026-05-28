@@ -1,62 +1,63 @@
 from .model import Recipe, RecipePool
 
 
-def _recipes_conflict(a: Recipe, b: Recipe) -> bool:
-    a_norm = frozenset(x.lower() for x in a.inputs)
-    b_norm = frozenset(x.lower() for x in b.inputs)
-    return bool(a_norm & b_norm)
+def _norm(recipe: Recipe) -> frozenset[str]:
+    return frozenset(x.lower() for x in recipe.inputs)
+
+
+def _pool_is_valid(pool: list[Recipe]) -> bool:
+    """A pool is valid when every recipe has at least one ingredient that appears
+    in no other recipe in the pool.  If all of a recipe's ingredients are
+    collectively present across the other recipes, someone crafting those others
+    simultaneously would accidentally provide enough inputs to also trigger it.
+    """
+    if len(pool) <= 1:
+        return True
+
+    normed = [_norm(r) for r in pool]
+
+    for i, recipe_inputs in enumerate(normed):
+        others_union = frozenset().union(*(normed[j] for j in range(len(pool)) if j != i))
+        if recipe_inputs <= others_union:
+            return False
+
+    return True
 
 
 def assign_pools(recipes: list[Recipe]) -> list[RecipePool]:
-    """Assign recipes to conflict-free pools using the DSatur graph coloring algorithm.
+    """Assign recipes to conflict-free pools using a greedy heuristic.
 
-    DSatur is deterministic given consistent tie-breaking and produces near-optimal
-    (often optimal) colorings, ensuring the same input always yields the same output.
+    Ordering heuristic: recipes whose ingredients are all "popular" (each one
+    appearing in many other recipes) are the hardest to place without causing
+    a conflict, so they are scheduled first.  Within the same difficulty band,
+    recipes are ordered alphabetically so the result is fully deterministic.
     """
     if not recipes:
         return []
 
-    n = len(recipes)
+    freq: dict[str, int] = {}
+    for recipe in recipes:
+        for ing in _norm(recipe):
+            freq[ing] = freq.get(ing, 0) + 1
 
-    adj: list[set[int]] = [set() for _ in range(n)]
-    for i in range(n):
-        for j in range(i + 1, n):
-            if _recipes_conflict(recipes[i], recipes[j]):
-                adj[i].add(j)
-                adj[j].add(i)
+    def difficulty(recipe: Recipe) -> int:
+        return min(freq[ing] for ing in _norm(recipe))
 
-    colors = [-1] * n
-    degree = [len(adj[i]) for i in range(n)]
-    neighbor_colors: list[set[int]] = [set() for _ in range(n)]
+    ordered = sorted(recipes, key=lambda r: (-difficulty(r), r.name.lower()))
 
-    def saturation(i: int) -> int:
-        return len(neighbor_colors[i])
+    pools: list[list[Recipe]] = []
 
-    def pick_next() -> int:
-        uncolored = [i for i in range(n) if colors[i] == -1]
-        # Highest saturation → highest degree → lowest name (alphabetical stability)
-        return min(uncolored, key=lambda i: (-saturation(i), -degree[i], recipes[i].name.lower()))
+    for recipe in ordered:
+        for pool in pools:
+            if _pool_is_valid(pool + [recipe]):
+                pool.append(recipe)
+                break
+        else:
+            pools.append([recipe])
 
-    for _ in range(n):
-        v = pick_next()
+    result = []
+    for i, pool in enumerate(pools):
+        pool.sort(key=lambda r: r.name.lower())
+        result.append(RecipePool(id=i + 1, recipes=pool))
 
-        used = neighbor_colors[v]
-        color = 0
-        while color in used:
-            color += 1
-
-        colors[v] = color
-
-        for u in adj[v]:
-            if colors[u] == -1:
-                neighbor_colors[u].add(color)
-
-    num_pools = max(colors) + 1
-    pools = [RecipePool(id=i + 1) for i in range(num_pools)]
-    for i, color in enumerate(colors):
-        pools[color].recipes.append(recipes[i])
-
-    for pool in pools:
-        pool.recipes.sort(key=lambda r: r.name.lower())
-
-    return pools
+    return result

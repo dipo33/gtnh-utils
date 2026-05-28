@@ -5,36 +5,44 @@ pools:
     inputs:
     - Antimony
     - Lead
+  - name: Blue Alloy
+    inputs:
+    - Electrotine
+    - Silver
+  - name: Brass
+    inputs:
+    - Copper
+    - Zinc
   - name: Bronze
     inputs:
     - Copper
     - Tin
+  - name: Cupronickel
+    inputs:
+    - Copper
+    - Nickel
   - name: Electrum
     inputs:
     - Gold
     - Silver
-  - name: Invar
+  - name: Glass Tube
     inputs:
-    - Iron
-    - Nickel
+    - Glass Dust
+    - Mold (Ball)
+  - name: Red Alloy
+    inputs:
+    - Copper
+    - Redstone
   - name: Reinforced Glass
     inputs:
     - Advanced Alloy
     - Glass Dust
 - id: 2
   recipes:
-  - name: Blue Alloy
+  - name: Invar
     inputs:
-    - Electrotine
-    - Silver
-  - name: Cupronickel
-    inputs:
-    - Copper
+    - Iron
     - Nickel
-  - name: Glass Tube
-    inputs:
-    - Glass Dust
-    - Mold (Ball)
   - name: Reinforced Glass
     inputs:
     - Advanced Alloy
@@ -43,21 +51,7 @@ pools:
     inputs:
     - Antimony
     - Tin
-- id: 3
-  recipes:
   - name: Tumbaga
     inputs:
     - Copper
     - Gold
-- id: 4
-  recipes:
-  - name: Brass
-    inputs:
-    - Copper
-    - Zinc
-- id: 5
-  recipes:
-  - name: Red Alloy
-    inputs:
-    - Copper
-    - Redstone
