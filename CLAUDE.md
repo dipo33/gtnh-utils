@@ -11,7 +11,12 @@ source .venv/bin/activate   # or prefix commands with .venv/bin/python
 .venv/bin/python tool.py recipes examples/alloy_smelter.yaml
 ```
 
-No test suite or linter is configured yet.
+Run the test suite with:
+
+```bash
+.venv/bin/pytest tests/ -v
+.venv/bin/pytest tests/test_solver.py -v   # solver only
+```
 
 ## Running the tool
 

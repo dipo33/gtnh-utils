@@ -25,11 +25,13 @@ def _pool_is_valid(pool: list[Recipe], rest: list[Recipe]) -> bool:
     cons = [_n(r.inputs) for r in pool]
     pool_all_union = frozenset().union(*(_n(r.all_inputs) for r in pool))
 
-    # Internal check
-    for i in range(len(pool)):
-        others_cons_union = frozenset().union(*(cons[j] for j in range(len(pool)) if j != i))
-        if cons[i] <= always_present | others_cons_union:
-            return False
+    # Internal check — only meaningful with 2+ recipes; a single recipe has nothing
+    # else to accidentally trigger it, and {} ⊆ anything would always fire otherwise.
+    if len(pool) > 1:
+        for i in range(len(pool)):
+            others_cons_union = frozenset().union(*(cons[j] for j in range(len(pool)) if j != i))
+            if cons[i] <= always_present | others_cons_union:
+                return False
 
     # External check
     for r in rest:
