@@ -28,21 +28,22 @@ pools:
   - name: Glass Tube
     inputs:
     - Glass Dust
+    non_consumable:
     - Mold (Ball)
   - name: Red Alloy
     inputs:
     - Copper
     - Redstone
-  - name: Reinforced Glass
-    inputs:
-    - Advanced Alloy
-    - Glass Dust
 - id: 2
   recipes:
   - name: Invar
     inputs:
     - Iron
     - Nickel
+  - name: Reinforced Glass
+    inputs:
+    - Advanced Alloy
+    - Glass
   - name: Soldering Alloy
     inputs:
     - Antimony

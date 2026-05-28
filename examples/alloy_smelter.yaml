@@ -23,6 +23,7 @@ recipes:
     inputs: [Advanced Alloy, Glass]
   - name: Glass Tube
     inputs: [Glass Dust]
+    non_consumable: [Mold (Ball)]
 
 rest:
   - name: Reinforced Glass

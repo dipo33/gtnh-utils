@@ -16,7 +16,8 @@ def _parse(items: list[dict]) -> list[Recipe]:
         [
             Recipe(
                 name=item["name"],
-                inputs=frozenset(str(inp) for inp in item["inputs"]),
+                inputs=frozenset(str(inp) for inp in item.get("inputs", [])),
+                non_consumable=frozenset(str(inp) for inp in item.get("non_consumable", [])),
             )
             for item in items
         ],

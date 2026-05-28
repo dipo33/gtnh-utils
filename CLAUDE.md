@@ -32,7 +32,7 @@ loader.py  →  solver.py  →  formatter.py  (terminal)
                          →  writer.py     (YAML file)
 ```
 
-- **`model.py`** — `Recipe(name, inputs: frozenset[str])` and `RecipePool(id, recipes)`. `inputs` preserves original casing from the YAML; normalization to lowercase is done only inside `solver.py`.
+- **`model.py`** — `Recipe(name, inputs: frozenset[str], non_consumable: frozenset[str])` and `RecipePool(id, recipes)`. `inputs` = consumable ingredients; `non_consumable` = ingredients required but not consumed (always present in pool buffer). `all_inputs` property = union of both. Original casing is preserved; normalization to lowercase is done only inside `solver.py`.
 - **`loader.py`** — Parses the input YAML, preserves ingredient casing, returns a `RecipeData(recipes, rest)` named tuple; both lists are sorted alphabetically for downstream determinism.
 - **`solver.py`** — Greedy pool assignment. `assign_pools(recipes, rest)` takes both lists; `rest` participates in the validity check and in the ingredient-frequency ordering but is never assigned to a pool. Recipes are ordered hardest-to-place first (`min(ingredient_freq across recipes+rest)` descending, then alphabetically), then greedily assigned to the first valid pool.
 - **`formatter.py`** — Rich terminal output; cycles through `_POOL_COLORS`.
@@ -42,8 +42,8 @@ loader.py  →  solver.py  →  formatter.py  (terminal)
 
 The machine globally knows all recipes. A pool is **invalid** if either:
 
-- *(Internal)* any pool recipe R has every ingredient covered by the union of other pool recipes — crafting the others together accidentally supplies all inputs for R.
-- *(External)* any `rest` recipe R has every ingredient covered by the full pool union — the pool's combined ingredient footprint would accidentally trigger R.
+- *(Internal)* any pool recipe R has every **consumable** ingredient covered by `(other pool recipes' consumable inputs) ∪ (all pool non-consumables)` — non-consumables are permanently in the buffer so they count toward covering.
+- *(External)* any `rest` recipe R has every ingredient covered by the full pool union (`all_inputs` of all pool recipes) — the pool's combined ingredient footprint would accidentally trigger R.
 
 Shared ingredients alone are **not** a conflict. Two recipes sharing Copper is fine; the problem is only when a recipe's *entire* input set is covered.
 
