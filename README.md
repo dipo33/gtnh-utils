@@ -4,11 +4,11 @@ A CLI toolkit for GregTech: New Horizons.
 
 ## `recipes` — split recipes into conflict-free machine pools
 
-Some machines (e.g. alloy smelters) use a shared input buffer. If two recipes share an ingredient and both are registered to the same machine, crafting them simultaneously can cause the machine to accidentally start the wrong recipe.
+Machines with a shared input buffer (e.g. alloy smelters) globally know all recipes. When you pipe in ingredients for multiple recipes simultaneously, the machine can accidentally trigger an unintended recipe if its inputs happen to be a subset of what's in the buffer.
 
-**Example:** Tumbaga (Gold + Copper) and Electrum (Gold + Silver) share Gold. If both sit in the same machine pool and you add Gold + Copper + Silver to the buffer, the machine might grab Gold + Silver and produce Electrum instead of Tumbaga.
+**Example:** crafting Tumbaga (Gold+Copper) and Blue Alloy (Silver+Electrotine) together puts Gold, Copper, Silver, and Electrotine in the buffer. If Electrum (Gold+Silver) is a recipe the machine knows, it will be accidentally triggered — even if you never intended to automate Electrum here.
 
-This command builds a conflict graph — nodes are recipes, edges connect recipes that share at least one ingredient — then applies the **DSatur** graph-colouring algorithm to partition recipes into the minimum number of pools where no two recipes in the same pool share an ingredient.
+This command assigns recipes to the minimum number of pools (one pool = one machine) so that no pool's combined ingredient footprint can accidentally satisfy any other known recipe.
 
 The output is deterministic: identical input always produces identical pool assignments.
 
@@ -37,55 +37,62 @@ python tool.py recipes FILE [OPTIONS]
 
 | Argument / Option | Description |
 |---|---|
-| `FILE` | Path to the input YAML file containing recipes |
+| `FILE` | Path to the input YAML file |
 | `-o / --output FILE` | Output YAML path (default: `<input>_pools.yaml`) |
-
-### Example
 
 ```bash
 python tool.py recipes examples/alloy_smelter.yaml
 python tool.py recipes examples/alloy_smelter.yaml --output my_pools.yaml
 ```
 
-Prints a colour-coded table for each pool to the terminal and writes the full assignment to a YAML file.
-
 ## Input format
 
 ```yaml
 recipes:
-  - name: Electrum
-    inputs: [Gold, Silver]
   - name: Tumbaga
     inputs: [Gold, Copper]
   - name: Blue Alloy
     inputs: [Silver, Electrotine]
   # ...
+
+rest:                          # optional
+  - name: Electrum
+    inputs: [Gold, Silver]
+  # ...
 ```
 
-- `name` — human-readable recipe name (case-preserved in all output)
-- `inputs` — list of ingredient names (case-insensitive for conflict detection, order does not matter)
+**`recipes`** — recipes you want to automate; these are assigned to pools.
+
+**`rest`** — other recipes this machine type knows about that you are *not* automating. Optional, but important for correctness: if a recipe exists in the game and the machine knows it, omitting it from `rest` means the tool won't detect accidental crafting of that recipe. You can omit entries you're certain won't cause conflicts.
+
+- `name` — human-readable (case-preserved in all output)
+- `inputs` — ingredient names (case-insensitive for conflict detection, order does not matter)
 
 ## Output format
+
+Only pools from the `recipes` section appear in the output. `rest` entries are never emitted.
 
 ```yaml
 pools:
   - id: 1
     recipes:
-      - name: Electrum
-        inputs: [Gold, Silver]
+      - name: Blue Alloy
+        inputs: [Electrotine, Silver]
   - id: 2
     recipes:
       - name: Tumbaga
         inputs: [Copper, Gold]
-      - name: Blue Alloy
-        inputs: [Electrotine, Silver]
 ```
 
 ## Algorithm
 
-Conflict detection uses pairwise ingredient-set intersection: recipes A and B conflict iff `inputs(A) ∩ inputs(B) ≠ ∅` (case-insensitive).
+**Collision rule:** a recipe R is unsafe in a pool when:
+- *(internal)* every ingredient of R also appears in at least one other recipe in the same pool — crafting the others simultaneously supplies all inputs needed to accidentally trigger R; or
+- *(external)* every ingredient of R (a `rest` recipe) is covered by the pool's combined ingredient footprint.
 
-Pool assignment uses **DSatur** (Brélaz 1979) — a greedy graph-colouring heuristic that always colours the vertex with the highest *saturation* (number of distinct colours already used by its neighbours) next. Ties are broken first by degree then alphabetically by name, making results fully deterministic. DSatur finds the optimal colouring on many real-world graphs and is significantly better than plain greedy colouring.
+Note: two recipes *sharing* an ingredient is not itself a conflict. What matters is whether any recipe's full input set is covered.
+
+**Assignment:** greedy, hardest-to-place first. Difficulty = `min(frequency of each ingredient across all known recipes)`. Ties broken alphabetically for full determinism.
 
 ## Project layout
 
@@ -96,8 +103,8 @@ gtnh_utils/
   modes/
     recipes/
       model.py                       Recipe / RecipePool dataclasses
-      loader.py                      YAML → Recipe list
-      solver.py                      DSatur pool assignment
+      loader.py                      YAML → RecipeData(recipes, rest)
+      solver.py                      greedy pool assignment
       formatter.py                   Rich terminal output
       writer.py                      RecipePool list → YAML
 examples/

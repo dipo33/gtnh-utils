@@ -22,10 +22,12 @@ def cli() -> None:
 def recipes_cmd(input_file: Path, output: Path | None) -> None:
     """Assign recipes from FILE to conflict-free pools.
 
-    Two recipes conflict when they share at least one input ingredient — placing
-    them in the same machine pool would allow accidental mis-crafting.  The
-    tool finds the minimum number of pools required so that every pool is
-    conflict-free, then writes the assignment to a YAML file.
+    The input YAML has two sections:
+
+    \b
+      recipes  — recipes to automate; these are assigned to pools.
+      rest     — other recipes the machine knows about (optional); never
+                 assigned to a pool but used to detect accidental crafting.
     """
     from .modes.recipes.formatter import print_pools
     from .modes.recipes.loader import load_recipes
@@ -34,10 +36,15 @@ def recipes_cmd(input_file: Path, output: Path | None) -> None:
 
     console = Console()
 
-    recipes = load_recipes(input_file)
-    console.print(f"[dim]Loaded [bold]{len(recipes)}[/bold] recipe(s) from [italic]{input_file}[/italic][/dim]")
+    data = load_recipes(input_file)
 
-    pools = assign_pools(recipes)
+    rest_note = f", [bold]{len(data.rest)}[/bold] rest" if data.rest else ""
+    console.print(
+        f"[dim]Loaded [bold]{len(data.recipes)}[/bold] recipe(s) to automate{rest_note}"
+        f" from [italic]{input_file}[/italic][/dim]"
+    )
+
+    pools = assign_pools(data.recipes, data.rest)
     print_pools(pools, console)
 
     if output is None:

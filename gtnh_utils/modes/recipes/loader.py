@@ -1,21 +1,34 @@
 from pathlib import Path
+from typing import NamedTuple
 
 import yaml
 
 from .model import Recipe
 
 
-def load_recipes(path: Path) -> list[Recipe]:
-    with open(path) as f:
-        data = yaml.safe_load(f)
+class RecipeData(NamedTuple):
+    recipes: list[Recipe]
+    rest: list[Recipe]
 
-    recipes = []
-    for item in data.get("recipes", []):
-        recipes.append(
+
+def _parse(items: list[dict]) -> list[Recipe]:
+    return sorted(
+        [
             Recipe(
                 name=item["name"],
                 inputs=frozenset(str(inp) for inp in item["inputs"]),
             )
-        )
+            for item in items
+        ],
+        key=lambda r: r.name.lower(),
+    )
 
-    return sorted(recipes, key=lambda r: r.name.lower())
+
+def load_recipes(path: Path) -> RecipeData:
+    with open(path) as f:
+        data = yaml.safe_load(f)
+
+    return RecipeData(
+        recipes=_parse(data.get("recipes", [])),
+        rest=_parse(data.get("rest", [])),
+    )

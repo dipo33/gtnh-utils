@@ -21,7 +21,9 @@ recipes:
     inputs: [Gold, Copper]
   - name: Reinforced Glass
     inputs: [Advanced Alloy, Glass]
+  - name: Glass Tube
+    inputs: [Glass Dust]
+
+rest:
   - name: Reinforced Glass
     inputs: [Advanced Alloy, Glass Dust]
-  - name: Glass Tube
-    inputs: [Glass Dust, Mold (Ball)]

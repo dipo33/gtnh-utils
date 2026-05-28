@@ -43,10 +43,6 @@ pools:
     inputs:
     - Iron
     - Nickel
-  - name: Reinforced Glass
-    inputs:
-    - Advanced Alloy
-    - Glass
   - name: Soldering Alloy
     inputs:
     - Antimony

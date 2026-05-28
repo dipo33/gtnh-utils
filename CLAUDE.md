@@ -33,14 +33,19 @@ loader.py  →  solver.py  →  formatter.py  (terminal)
 ```
 
 - **`model.py`** — `Recipe(name, inputs: frozenset[str])` and `RecipePool(id, recipes)`. `inputs` preserves original casing from the YAML; normalization to lowercase is done only inside `solver.py`.
-- **`loader.py`** — Parses the input YAML, preserves ingredient casing, returns recipes sorted alphabetically (for downstream determinism).
-- **`solver.py`** — Greedy pool assignment. A pool is **valid** when every recipe has at least one ingredient that appears in no other recipe in the same pool (if all ingredients are covered by others, those others could inadvertently trigger it). Recipes are ordered hardest-to-place first (`min(ingredient_freq)` descending, then alphabetically), then greedily assigned to the first valid pool.
+- **`loader.py`** — Parses the input YAML, preserves ingredient casing, returns a `RecipeData(recipes, rest)` named tuple; both lists are sorted alphabetically for downstream determinism.
+- **`solver.py`** — Greedy pool assignment. `assign_pools(recipes, rest)` takes both lists; `rest` participates in the validity check and in the ingredient-frequency ordering but is never assigned to a pool. Recipes are ordered hardest-to-place first (`min(ingredient_freq across recipes+rest)` descending, then alphabetically), then greedily assigned to the first valid pool.
 - **`formatter.py`** — Rich terminal output; cycles through `_POOL_COLORS`.
 - **`writer.py`** — Dumps `RecipePool` list to YAML, ingredients sorted case-insensitively.
 
 ### Collision rule (important invariant)
 
-A recipe C is **unsafe** in a pool when every ingredient of C also appears in at least one *other* recipe in that pool — meaning someone crafting all the others simultaneously inadvertently supplies all inputs needed to trigger C. Shared ingredients alone are **not** a conflict; the check is holistic per recipe against the union of all others in the same pool.
+The machine globally knows all recipes. A pool is **invalid** if either:
+
+- *(Internal)* any pool recipe R has every ingredient covered by the union of other pool recipes — crafting the others together accidentally supplies all inputs for R.
+- *(External)* any `rest` recipe R has every ingredient covered by the full pool union — the pool's combined ingredient footprint would accidentally trigger R.
+
+Shared ingredients alone are **not** a conflict. Two recipes sharing Copper is fine; the problem is only when a recipe's *entire* input set is covered.
 
 ## Adding a new mode
 
