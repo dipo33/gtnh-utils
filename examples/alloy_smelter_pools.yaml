@@ -1,0 +1,63 @@
+pools:
+- id: 1
+  recipes:
+  - name: Battery Alloy
+    inputs:
+    - Antimony
+    - Lead
+  - name: Bronze
+    inputs:
+    - Copper
+    - Tin
+  - name: Electrum
+    inputs:
+    - Gold
+    - Silver
+  - name: Invar
+    inputs:
+    - Iron
+    - Nickel
+  - name: Reinforced Glass
+    inputs:
+    - Advanced Alloy
+    - Glass Dust
+- id: 2
+  recipes:
+  - name: Blue Alloy
+    inputs:
+    - Electrotine
+    - Silver
+  - name: Cupronickel
+    inputs:
+    - Copper
+    - Nickel
+  - name: Glass Tube
+    inputs:
+    - Glass Dust
+    - Mold (Ball)
+  - name: Reinforced Glass
+    inputs:
+    - Advanced Alloy
+    - Glass
+  - name: Soldering Alloy
+    inputs:
+    - Antimony
+    - Tin
+- id: 3
+  recipes:
+  - name: Tumbaga
+    inputs:
+    - Copper
+    - Gold
+- id: 4
+  recipes:
+  - name: Brass
+    inputs:
+    - Copper
+    - Zinc
+- id: 5
+  recipes:
+  - name: Red Alloy
+    inputs:
+    - Copper
+    - Redstone

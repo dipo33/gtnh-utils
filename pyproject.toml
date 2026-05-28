@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "gtnh-utils"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.1",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.scripts]
+gtnh-utils = "gtnh_utils.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gtnh_utils*"]

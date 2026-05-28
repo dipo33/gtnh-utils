@@ -1,0 +1,27 @@
+recipes:
+  - name: Red Alloy
+    inputs: [Copper, Redstone]
+  - name: Cupronickel
+    inputs: [Copper, Nickel]
+  - name: Soldering Alloy
+    inputs: [Tin, Antimony]
+  - name: Electrum
+    inputs: [Gold, Silver]
+  - name: Brass
+    inputs: [Copper, Zinc]
+  - name: Invar
+    inputs: [Iron, Nickel]
+  - name: Blue Alloy
+    inputs: [Silver, Electrotine]
+  - name: Battery Alloy
+    inputs: [Lead, Antimony]
+  - name: Bronze
+    inputs: [Copper, Tin]
+  - name: Tumbaga
+    inputs: [Gold, Copper]
+  - name: Reinforced Glass
+    inputs: [Advanced Alloy, Glass]
+  - name: Reinforced Glass
+    inputs: [Advanced Alloy, Glass Dust]
+  - name: Glass Tube
+    inputs: [Glass Dust, Mold (Ball)]
