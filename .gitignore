@@ -7,3 +7,6 @@ dist/
 build/
 .python-version
 outputs/**/*.yaml
+inputs/textures/*
+outputs/textures/*
+!**/.gitkeep

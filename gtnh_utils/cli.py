@@ -59,3 +59,55 @@ def recipes_cmd(input_file: Path, output: Path | None) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     write_pools(pools, output)
     console.print(f"[dim]Output written to [bold italic]{output}[/bold italic][/dim]\n")
+
+
+@cli.command("tint")
+@click.argument("texture", metavar="FILE", type=click.Path(exists=True, path_type=Path))
+@click.argument("color", metavar="COLOR")
+@click.option(
+    "--output",
+    "-o",
+    metavar="FILE",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Output PNG file (default: <texture>_<color>.png in outputs/textures/).",
+)
+def tint_cmd(texture: Path, color: str, output: Path | None) -> None:
+    """Apply a Minecraft-style color tint to a grayscale texture.
+
+    COLOR is a hex RGB value, with or without a leading #.
+
+    \b
+    Examples:
+      tool.py tint inputs/textures/leaves.png 80A755
+      tool.py tint inputs/textures/leaves.png "#619961"
+    """
+    from .modes.tint.tinter import parse_color, tint_texture
+
+    console = Console()
+
+    try:
+        tint_rgb = parse_color(color)
+    except ValueError as exc:
+        raise click.BadParameter(str(exc), param_hint="COLOR") from exc
+
+    normalized = color.lstrip("#").upper()
+    console.print(
+        f"[dim]Tinting [italic]{texture}[/italic] with"
+        f" [bold]#{normalized}[/bold] ({tint_rgb[0]}, {tint_rgb[1]}, {tint_rgb[2]})[/dim]"
+    )
+
+    img = tint_texture(str(texture), tint_rgb)
+
+    if output is None:
+        parts = texture.parts
+        if "inputs" in parts:
+            idx = list(parts).index("inputs")
+            out_parts = parts[:idx] + ("outputs",) + parts[idx + 1:]
+            output = Path(*out_parts).with_name(f"{texture.stem}_{normalized}.png")
+        else:
+            output = texture.parent / f"{texture.stem}_{normalized}.png"
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    img.save(str(output), "PNG")
+    console.print(f"[dim]Output written to [bold italic]{output}[/bold italic][/dim]\n")
