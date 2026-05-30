@@ -48,7 +48,14 @@ def recipes_cmd(input_file: Path, output: Path | None) -> None:
     print_pools(pools, console)
 
     if output is None:
-        output = input_file.parent / f"{input_file.stem}_pools.yaml"
+        parts = input_file.parts
+        if "inputs" in parts:
+            idx = list(parts).index("inputs")
+            out_parts = parts[:idx] + ("outputs",) + parts[idx + 1:]
+            output = Path(*out_parts).with_name(f"{input_file.stem}_pools.yaml")
+        else:
+            output = input_file.parent / f"{input_file.stem}_pools.yaml"
 
+    output.parent.mkdir(parents=True, exist_ok=True)
     write_pools(pools, output)
     console.print(f"[dim]Output written to [bold italic]{output}[/bold italic][/dim]\n")

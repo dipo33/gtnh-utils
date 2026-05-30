@@ -41,8 +41,8 @@ python tool.py recipes FILE [OPTIONS]
 | `-o / --output FILE` | Output YAML path (default: `<input>_pools.yaml`) |
 
 ```bash
-python tool.py recipes examples/alloy_smelter.yaml
-python tool.py recipes examples/alloy_smelter.yaml --output my_pools.yaml
+python tool.py recipes inputs/recipes/alloy_smelter.yaml
+python tool.py recipes inputs/recipes/alloy_smelter.yaml --output my_pools.yaml
 ```
 
 ## Input format
@@ -107,7 +107,10 @@ gtnh_utils/
       solver.py                      greedy pool assignment
       formatter.py                   Rich terminal output
       writer.py                      RecipePool list → YAML
-examples/
-  alloy_smelter.yaml                 sample input
-  alloy_smelter_pools.yaml           sample output (generated)
+inputs/
+  recipes/
+    alloy_smelter.yaml               sample input
+outputs/
+  recipes/
+    alloy_smelter_pools.yaml         sample output (generated, gitignored)
 ```

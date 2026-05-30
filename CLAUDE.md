@@ -8,7 +8,7 @@ Python 3.11 via pyenv (`.python-version` pins the version). Always use `.venv` f
 
 ```bash
 source .venv/bin/activate   # or prefix commands with .venv/bin/python
-.venv/bin/python tool.py recipes examples/alloy_smelter.yaml
+.venv/bin/python tool.py recipes inputs/recipes/alloy_smelter.yaml
 ```
 
 Run the test suite with:

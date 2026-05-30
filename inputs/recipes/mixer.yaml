@@ -1,0 +1,339 @@
+recipes:
+  # Circuit 1
+  - name: Black Steel Dust
+    inputs: [Nickel Dust, Steel Dust, Black Bronze Dust]
+    non_consumable: [Circuit (1)]
+  - name: Black Bronze Dust
+    inputs: [Copper Dust, Electrum Dust]
+    non_consumable: [Circuit (1)]
+  - name: Indium Gallium Phosphide Dust
+    inputs: [Phosphorus Dust, Gallium Dust, Indium Dust]
+    non_consumable: [Circuit (1)]
+  - name: Vanadium-Gallium Dust
+    inputs: [Vanadium Dust, Gallium Dust]
+    non_consumable: [Circuit (1)]
+  - name: Tungstensteel Dust
+    inputs: [Tungsten Dust, Steel Dust]
+    non_consumable: [Circuit (1)]
+  # Circuit 2
+  - name: Lapotron Dust
+    inputs: [Energium Dust, Lapis Dust]
+    non_consumable: [Circuit (2)]
+  - name: Superconductor Base IV Dust
+    inputs: [Vanadium Dust, Indium Dust]
+    non_consumable: [Circuit (2)]
+  # No Circuit
+  - name: Energium Dust
+    inputs: [Redstone Dust, Ruby Dust]
+
+rest:
+  # Circuit 1 Recipes (No Fluid Input)
+  - name: Magnalium Dust
+    inputs: [Magnesium Dust, Aluminium Dust]
+    non_consumable: [Circuit (1)]
+  - name: Battery Alloy Dust
+    inputs: [Antimony Dust, Lead Dust]
+    non_consumable: [Circuit (1)]
+  - name: Bronze Dust
+    inputs: [Copper Dust, Tin Dust]
+    non_consumable: [Circuit (1)]
+  - name: Brass Dust
+    inputs: [Copper Dust, Zinc Dust]
+    non_consumable: [Circuit (1)]
+  - name: Soldering Alloy Dust
+    inputs: [Antimony Dust, Tin Dust]
+    non_consumable: [Circuit (1)]
+  - name: Electrum Dust
+    inputs: [Gold Dust, Silver Dust]
+    non_consumable: [Circuit (1)]
+  - name: Invar Dust
+    inputs: [Iron Dust, Nickel Dust]
+    non_consumable: [Circuit (1)]
+  - name: Bismuth Bronze Dust
+    inputs: [Bismuth Dust, Brass Dust]
+    non_consumable: [Circuit (1)]
+  - name: Gunpowder
+    inputs: [Sulfur Dust, Coal Dust, Saltpeter Dust]
+    non_consumable: [Circuit (1)]
+  - name: Gunpowder
+    inputs: [Sulfur Dust, Charcoal Dust, Saltpeter Dust]
+    non_consumable: [Circuit (1)]
+  - name: Gunpowder
+    inputs: [Sulfur Dust, Carbon Dust, Saltpeter Dust]
+    non_consumable: [Circuit (1)]
+  - name: Blue Steel Dust
+    inputs: [Brass Dust, Steel Dust, Black Steel Dust, Rose Gold Dust]
+    non_consumable: [Circuit (1)]
+  - name: Red Steel Dust
+    inputs: [Sterling Silver Dust, Steel Dust, Black Steel Dust, Bismuth Bronze Dust]
+    non_consumable: [Circuit (1)]
+  - name: Cobalt Brass Dust
+    inputs: [Cobalt Dust, Tin Dust, Brass Dust]
+    non_consumable: [Circuit (1)]
+  - name: Rhodium-Plated Palladium Dust
+    inputs: [Palladium Dust, Rhodium Dust]
+    non_consumable: [Circuit (1)]
+  - name: Ruridit Dust
+    inputs: [Iridium Dust, Ruthenium Dust]
+    non_consumable: [Circuit (1)]
+  - name: Coal Ball
+    inputs: [Coal Dust, Flint Dust]
+    non_consumable: [Circuit (1)]
+  - name: Bio Ball
+    inputs: [Plantball, Flint Dust]
+    non_consumable: [Circuit (1)]
+  - name: HTGR fuel mixture (Thorium)
+    inputs: [Uranium 235 Dust, Thorium 232 Dust]
+    non_consumable: [Circuit (1)]
+  - name: HTGR fuel mixture (Plutonium)
+    inputs: [Plutonium 239 Dust, Plutonium 241 Dust]
+    non_consumable: [Circuit (1)]
+  - name: HTGR fuel mixture (Uranium)
+    inputs: [Uranium 235 Dust, Uranium 238 Dust]
+    non_consumable: [Circuit (1)]
+  - name: Endereye Dust
+    inputs: [Blaze Powder, Enderpearl Dust]
+    non_consumable: [Circuit (1)]
+  - name: Kanthal Dust
+    inputs: [Aluminium Dust, Chrome Dust, Iron Dust]
+    non_consumable: [Circuit (1)]
+  - name: Stainless Steel Dust
+    inputs: [Manganese Dust, Chrome Dust, Iron Dust, Invar Dust]
+    non_consumable: [Circuit (1)]
+  - name: Electrotine Dust
+    inputs: [Redstone Dust, Electrum Dust]
+    non_consumable: [Circuit (1)]
+  - name: Astral Silver Dust
+    inputs: [Silver Dust, Thaumium Dust]
+    non_consumable: [Circuit (1)]
+  - name: Tungstencarbide Dust
+    inputs: [Tungsten Dust, Carbon Dust]
+    non_consumable: [Circuit (1)]
+  - name: Nichrome Dust
+    inputs: [Chrome Dust, Nickel Dust]
+    non_consumable: [Circuit (1)]
+  - name: Osmiridium Dust
+    inputs: [Osmium Dust, Iridium Dust]
+    non_consumable: [Circuit (1)]
+  - name: TPV-Alloy Dust
+    inputs: [Titanium Dust, Vanadium Dust, Platinum Dust]
+    non_consumable: [Circuit (1)]
+  - name: Tantalum Carbide / Hafnium Carbide Mixture Dust
+    inputs: [Tantalum Carbide Dust, Hafnium Carbide Dust]
+    non_consumable: [Circuit (1)]
+  - name: Niobium-Titanium Dust
+    inputs: [Titanium Dust, Niobium Dust]
+    non_consumable: [Circuit (1)]
+  - name: HSS-G Dust
+    inputs: [Vanadium Dust, Chrome Dust, Molybdenum Dust, Tungstensteel Dust]
+    non_consumable: [Circuit (1)]
+  - name: HSS-E Dust
+    inputs: [Raw Silicon Dust, Manganese Dust, Cobalt Dust, HSS-G Dust]
+    non_consumable: [Circuit (1)]
+  - name: Plutinium Based Liquid Fuel
+    inputs: [Caesium Dust, Neutronium Dust, Naquadah Dust, High Density Plutonium]
+    non_consumable: [Circuit (1)]
+
+  # Circuit 2 Recipes (No Fluid Input)
+  # <!water <!acid <!oxygen <!mercury <!gasoline <!hydrogen <!fluid <!plasma
+  - name: Indium Gallium Phosphide Dust
+    inputs: [Gallium Hydroxide Dust, Indium Phosphate Dust]
+    non_consumable: [Circuit (2)]
+  - name: Conductive Iron Dust
+    inputs: [Iron Dust, Silver Dust, Redstone Alloy Dust]
+    non_consumable: [Circuit (2)]
+  - name: Crystalline Pink Slime Dust
+    inputs: [Congealed Purple Slime, Crystalline Alloy Dust, Diamond Dust]
+    non_consumable: [Circuit (2)]
+  - name: Stellar Alloy Dust
+    inputs: [Naquadah Dust, Melodic Alloy Dust, Nether Star Dust]
+    non_consumable: [Circuit (2)]
+  - name: End Steel Dust
+    inputs: [Tungsten Dust, Dark Steel Dust, Endstone Dust]
+    non_consumable: [Circuit (2)]
+  - name: Dark Steel Dust
+    inputs: [Electrical Steel Dust, Coal Dust, Obsidian Dust]
+    non_consumable: [Circuit (2)]
+  - name: Soularium Dust
+    inputs: [Soul Sand, Gold Dust, Ashes]
+    non_consumable: [Circuit (2)]
+  - name: Clay Compound Dust
+    inputs: [Stone Dust, Flint Dust, Clay Dust]
+    non_consumable: [Circuit (2)]
+  - name: Melodic Alloy Dust
+    inputs: [Oriharukon Dust, End Steel Dust, Endereye Dust]
+    non_consumable: [Circuit (2)]
+  - name: Crystalline Alloy Dust
+    inputs: [Grains of Piezallity, Gold Dust, Emerald Dust]
+    non_consumable: [Circuit (2)]
+  - name: Energetic Alloy Dust
+    inputs: [Gold Dust, Black Steel Dust, Conductive Iron Dust]
+    non_consumable: [Circuit (2)]
+  - name: Vibrant Alloy Dust
+    inputs: [Chrome Dust, Energetic Alloy Dust, Endereye Dust]
+    non_consumable: [Circuit (2)]
+  - name: Vivid Alloy Dust
+    inputs: [Chrome Dust, Energetic Silver Dust, Endereye Dust]
+    non_consumable: [Circuit (2)]
+  - name: Electrical Steel Dust
+    inputs: [Raw Silicon Dust, Steel Dust, Coal Dust]
+    non_consumable: [Circuit (2)]
+  - name: Redstone Alloy Dust
+    inputs: [Redstone Dust, Raw Silicon Dust, Coal Dust]
+    non_consumable: [Circuit (2)]
+  - name: Pulsating Iron Dust
+    inputs: [Iron Dust, Redstone Alloy Dust, Enderpearl Dust]
+    non_consumable: [Circuit (2)]
+  - name: Glass Dust
+    inputs: [Small Pile of Flint Dust, Quartzite Dust]
+    non_consumable: [Circuit (2)]
+  - name: Glass Dust
+    inputs: [Small Pile of Flint Dust, Quartz Sand Dust]
+    non_consumable: [Circuit (2)]
+  - name: Obzinite Dust
+    inputs: [Zinc Dust, Steel Dust, Obsidian Dust]
+    non_consumable: [Circuit (2)]
+  - name: Enderium Dust
+    inputs: [Thaumium Dust, Enderium Base Dust, Enderpearl Dust]
+    non_consumable: [Circuit (2)]
+  - name: Mica Based Pulp
+    inputs: [Sticky Resin, Mica Dust]
+    non_consumable: [Circuit (2)]
+  - name: Manyullyn Dust
+    inputs: [Cobalt Dust, Ardite Dust]
+    non_consumable: [Circuit (2)]
+  - name: Mica Based Pulp
+    inputs: [Raw Rubber Dust, Mica Dust]
+    non_consumable: [Circuit (2)]
+  - name: Enderium Base Dust
+    inputs: [Silver Dust, Tin Dust, Platinum Dust]
+    non_consumable: [Circuit (2)]
+  - name: Red Alloy Dust
+    inputs: [Redstone Dust, Copper Dust]
+    non_consumable: [Circuit (2)]
+  - name: Zircaloy-2 Dust
+    inputs: [Chrome Dust, Iron Dust, Nickel Dust, Tin Dust, Zirconium Dust]
+    non_consumable: [Circuit (2)]
+  - name: Vanadiumsteel Dust
+    inputs: [Vanadium Dust, Chrome Dust, Steel Dust]
+    non_consumable: [Circuit (2)]
+  - name: BISO pebble compound
+    inputs: [Uranium 235 Dust, Thorium 232 Dust]
+    non_consumable: [Circuit (2)]
+  - name: Solar Salt (Cold)
+    inputs: [Potassium Nitrate Dust, Sodium Nitrate Dust]
+    non_consumable: [Circuit (2)]
+  - name: Rose Gold Dust
+    inputs: [Copper Dust, Gold Dust]
+    non_consumable: [Circuit (2)]
+  - name: Stainless Steel Dust
+    inputs: [Chrome Dust, Manganese Dust, Iron Dust, Nickel Dust]
+    non_consumable: [Circuit (2)]
+  - name: Ultimet Dust
+    inputs: [Chrome Dust, Cobalt Dust, Nickel Dust, Molybdenum Dust]
+    non_consumable: [Circuit (2)]
+  - name: Superconductor Base EV Dust
+    inputs: [Platinum Dust, Uranium 238 Dust]
+    non_consumable: [Circuit (2)]
+  - name: Maraging Steel 250 Dust
+    inputs: [Titanium Dust, Cobalt Dust, Nickel Dust, Molybdenum Dust, Steel Dust]
+    non_consumable: [Circuit (2)]
+  - name: Naquadah Alloy Dust
+    inputs: [Carbon Dust, Naquadah Dust, Trinium Dust]
+    non_consumable: [Circuit (2)]
+  - name: HSS-S Dust
+    inputs: [Osmium Dust, Iridium Dust, HSS-G Dust]
+    non_consumable: [Circuit (2)]
+  - name: Superconductor Base ZPM Dust
+    inputs: [Palladium Dust, Indium Dust, Osmium Dust, Naquadah Dust]
+    non_consumable: [Circuit (2)]
+  - name: Superconductor Base UV Dust
+    inputs: [Samarium Dust, Europium Dust, Osmiridium Dust, Naquadria Dust]
+    non_consumable: [Circuit (2)]
+  - name: Superconductor Base UHV Dust
+    inputs: [Americium Dust, Tritanium Dust, Cosmic Neutronium Dust, Draconium Dust]
+    non_consumable: [Circuit (2)]
+
+    # No Circuit (No Fluid Input)
+    # <!"Prog" >!Sm <!heli <!wat <!bre >!dr <!stea <!mil <!cre <!aci <!dou <!pot <!acet <!oxy <!molt <!lav <!ju <!mer <!dri <!wee <!fue <!bu <!die <!coo <!glu <!goo <!plas <!was <!ä <!age <!conc
+  - name: Ironwood Dust
+    inputs: [Iron Dust, Liveroot Dust, Tiny Pile of Gold Dust]
+  - name: Fireclay Dust
+    inputs: [Brick Dust, Clay Dust]
+  - name: Borosilicate Glass Dust
+    inputs: [Boron Dust, Glass Dust]
+  - name: Ironwood Dust
+    inputs: [Gold Dust, Iron Dust, Liveroot Dust]
+  - name: Graphite-Uranium Mixture Dust
+    inputs: [Graphite Dust, Uranium 238 Dust]
+  - name: Raw Ademic Steel Dust
+    inputs: [Steel Dust, Vanadiumsteel Dust, Damascus Steel Dust]
+  - name: Circuit Compound MK3 Dust
+    inputs: [Indium Gallium Phosphide Dust, Dibismuthhydroborat Dust, Bismuth Telluride Dust]
+  - name: Babbit Alloy Dust
+    inputs: [Tin Dust, Lead Dust, Antimony Dust, Arsenic Dust]
+  - name: Wood's Glass Dust
+    inputs: [Raw Silicon Dust, Barium Dust, Sodium Dust, Nickel Dust]
+  - name: High Durability Compound Steel Dust
+    inputs: [Tungstensteel Dust, HSS-E Dust, HSS-G Dust, Ruridit Dust, Magneto Resonatic Dust, Plutonium 239]
+  - name: Magneto Resonatic Dust
+    inputs: [Prasiolite Dust, Bismuth Telluride Dust, Zirconia Dust, Magnetic Steel Dust]
+  - name: Uranium Carbide-Thorium Mixture Dust
+    inputs: [Thorium Dust, Thorium 232 Dust, Uranium 235 Dust, Carbon Dust]
+  - name: Eglin Steel Dust
+    inputs: [Eglin Steel Base Compound Dust, Sulfur Dust, Raw Silicon Dust, Carbon Dust]
+  - name: Samarium Chloride-Sodium Chloride Blend Dust
+    inputs: [Samarium(III)-Chloride Dust, Salt Dust]
+  - name: Electrotine Iron Compound
+    inputs: [Iron Ingot, Electrotine Dust]
+  - name: Pyrotheum Dust
+    inputs: [Coal Dust, Sulfur Dust, Redstone Dust, Blaze Powder]
+  - name: Cryotheum Dust
+    inputs: [Saltpeter Dust, Snow Powder, Redstone Dust, Blizz Dust]
+  - name: Cryotheum Dust
+    inputs: [Niter Dust, Snow Powder, Redstone Dust, Blizz Dust]
+  - name: Tellurium-Molybdenum-Oxide Catalyst Dust
+    inputs: [Molybdenum (IV) Oxide Dust, Tellurium (IV) Oxide Dust]
+  - name: Energium Dust
+    inputs: [Tiny Pile of Redstone Dust, Tiny Pile of Ruby Dust]
+  - name: Gaia Spirit Dust
+    inputs: [Terrasteel Dust, Gaia Spirit]
+  - name: Incoloy-DS Dust
+    inputs: [Iron Dust, Cobalt Dust, Chrome Dust, Nickel Dust]
+  - name: Incoloy-020 Dust
+    inputs: [Iron Dust, Copper Dust, Chrome Dust, Nickel Dust]
+  - name: Inconel-792 Dust
+    inputs: [Nickel Dust, Niobium Dust, Aluminium Dust, Nichrome Dust]
+  - name: Talonite Dust
+    inputs: [Cobalt Dust, Chrome Dust, Phosphorus Dust, Molybdenum Dust]
+  - name: Inconel-690 Dust
+    inputs: [Chrome Dust, Niobium Dust, Molybdenum Dust, Nichrome Dust]
+  - name: Vibrant Alloy Dust
+    inputs: [Redstone Dust, Raw Silicon Dust, Coal Dust, Iron Dust, Silver Dust, Black Steel Dust, Endereye Dust, Chrome Dust, Gold Dust]
+  - name: Stellite Dust
+    inputs: [Cobalt Dust, Chrome Dust, Manganese Dust, Titanium Dust]
+  - name: Incoloy-MA956 Dust
+    inputs: [Iron Dust, Aluminium Dust, Chrome Dust, Yttrium Dust]
+  - name: White Metal Dust
+    inputs: [Copper Dust, Antimony Dust, Platinum Dust, Tin Dust]
+  - name: Energy Crystal Dust
+    inputs: [Aer Crystal Powder, Terra Crystal Powder, Ignis Crystal Powder, Aqua Crystal Powder]
+  - name: Arcanite Dust
+    inputs: [Thorium 232 Dust, Energy Crystal Dust, Ordo Crystal Powder, Perditio Crystal Powder]
+  - name: Titansteel Dust
+    inputs: [Tungsten Titanium Carbide Dust, Ignis Crystal Powder, Terra Crystal Powder, Perditio Crystal Powder]
+  - name: Botmium Dust
+    inputs: [Nitinol 60 Dust, Osmium Dust, Ruthenium Dust, Thallium Dust]
+
+  - name: Fire Charge
+    inputs: [Blaze Powder, Gunpowder, Coal Dust]
+  - name: Ammo - Blazing Clay
+    inputs: [Clay Dust, Redstone Dust, Blaze Powder]
+  - name: Bleached Clay
+    inputs: [Clay, Bone Meal]
+  - name: Floral Fertilizer
+    inputs: [Mutandis, Bone Meal]
+  - name: Floral Fertilizer
+    inputs: [Draconium Dust, Bone Meal]
+  - name: Fermented Spider Eye
+    inputs: [Sugar, Mushroom, Spider Eye]
