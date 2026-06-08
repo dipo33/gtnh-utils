@@ -98,3 +98,39 @@ def test_ingredient_case_preserved(tmp_path):
     data = load_recipes(path)
     assert "UpperCase" in data.recipes[0].inputs
     assert "MixedCase" in data.recipes[0].inputs
+
+
+def test_fluid_inputs_parsed(tmp_path):
+    path = write_yaml(tmp_path, """
+        recipes:
+          - name: Mixer
+            inputs: [Stone Dust]
+            fluid_inputs: [Water, Ammonia]
+    """)
+    data = load_recipes(path)
+    r = data.recipes[0]
+    assert r.fluid_inputs == frozenset({"Water", "Ammonia"})
+
+
+def test_missing_fluid_inputs_defaults_empty(tmp_path):
+    path = write_yaml(tmp_path, """
+        recipes:
+          - name: Bronze
+            inputs: [Copper, Tin]
+    """)
+    data = load_recipes(path)
+    assert data.recipes[0].fluid_inputs == frozenset()
+
+
+def test_fluid_inputs_in_rest(tmp_path):
+    path = write_yaml(tmp_path, """
+        recipes:
+          - name: A
+            inputs: [X]
+        rest:
+          - name: B
+            inputs: [Y]
+            fluid_inputs: [Acid]
+    """)
+    data = load_recipes(path)
+    assert data.rest[0].fluid_inputs == frozenset({"Acid"})
