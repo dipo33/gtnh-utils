@@ -28,6 +28,11 @@ recipes:
   - name: Enderium Base Dust
     inputs: [Silver Dust, Tin Dust, Platinum Dust]
     non_consumable: [Circuit (2)]
+  # Circuit 4
+  - name: Fluix Dust
+    inputs: [Redstone Dust, Nether Quartz Dust, Charged Certus Quartz Dust]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (4)]
   # No Circuit
   - name: Energium Dust
     inputs: [Redstone Dust, Ruby Dust]
@@ -395,3 +400,52 @@ rest:
     inputs: [Draconium Dust, Bone Meal]
   - name: Fermented Spider Eye
     inputs: [Sugar, Mushroom, Spider Eye]
+
+  # Water Recipes
+  - name: Clay
+    inputs: [Small Pile of Clay Dust]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (2)]
+  - name: Mud Ball
+    inputs: [Dirt]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (4)]
+  - name: Salt Water
+    inputs: [Salt]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (3)]
+  - name: Fluix Crystal
+    inputs: [Redstone Dust, Nether Quartz, Charged Certus Quartz Crystal]
+    fluid_inputs: [Water]
+  - name: Humus
+    inputs: [Dirt, IC2 Fertilizer]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (1)]
+  - name: Humus
+    inputs: [Dirt, Mulch]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (1)]
+  - name: Wet Concrete
+    inputs: [Stone Dust, Clay Dust, Calcite Dust, Quartz Sand]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (2)]
+  - name: Grout
+    inputs: [Sand, Gravel, Clay Block]
+    fluid_inputs: [Water]
+  - name: Growth Medium
+    inputs: [Bone, Sugar, Mulch, Wood Ash]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (2)]
+  - name: Hempcrete
+    inputs: [Hempcrete Powder]
+    fluid_inputs: [Water]
+  - name: IC2 Fertilizer
+    inputs: [Dirt, Sand, Wood Pulp]
+    fluid_inputs: [Water]
+  - name: IC2 Coolant
+    inputs: [Lapis Dust]
+    fluid_inputs: [Water]
+    non_consumable: [Circuit (4)]
+  - name: Anointing Paste
+    inputs: [Belladonna Seeds, Mandrake Seends, Water Artichoke Seeds, Snowbell Seeds]
+    fluid_inputs: [Water]
