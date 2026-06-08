@@ -24,6 +24,8 @@ recipes:
   - name: Glass Tube
     inputs: [Glass Dust]
     non_consumable: [Mold (Ball)]
+  - name: Quartz Glass
+    inputs: [Glass, Certus Quartz Dust]
 
 rest:
   - name: Reinforced Glass
