@@ -22,6 +22,12 @@ recipes:
   - name: Superconductor Base IV Dust
     inputs: [Vanadium Dust, Indium Dust]
     non_consumable: [Circuit (2)]
+  - name: Enderium Dust
+    inputs: [Thaumium Dust, Enderium Base Dust, Enderpearl Dust]
+    non_consumable: [Circuit (2)]
+  - name: Enderium Base Dust
+    inputs: [Silver Dust, Tin Dust, Platinum Dust]
+    non_consumable: [Circuit (2)]
   # No Circuit
   - name: Energium Dust
     inputs: [Redstone Dust, Ruby Dust]
@@ -65,7 +71,8 @@ rest:
     inputs: [Brass Dust, Steel Dust, Black Steel Dust, Rose Gold Dust]
     non_consumable: [Circuit (1)]
   - name: Red Steel Dust
-    inputs: [Sterling Silver Dust, Steel Dust, Black Steel Dust, Bismuth Bronze Dust]
+    inputs:
+      [Sterling Silver Dust, Steel Dust, Black Steel Dust, Bismuth Bronze Dust]
     non_consumable: [Circuit (1)]
   - name: Cobalt Brass Dust
     inputs: [Cobalt Dust, Tin Dust, Brass Dust]
@@ -131,7 +138,8 @@ rest:
     inputs: [Raw Silicon Dust, Manganese Dust, Cobalt Dust, HSS-G Dust]
     non_consumable: [Circuit (1)]
   - name: Plutinium Based Liquid Fuel
-    inputs: [Caesium Dust, Neutronium Dust, Naquadah Dust, High Density Plutonium]
+    inputs:
+      [Caesium Dust, Neutronium Dust, Naquadah Dust, High Density Plutonium]
     non_consumable: [Circuit (1)]
 
   # Circuit 2 Recipes (No Fluid Input)
@@ -193,9 +201,6 @@ rest:
   - name: Obzinite Dust
     inputs: [Zinc Dust, Steel Dust, Obsidian Dust]
     non_consumable: [Circuit (2)]
-  - name: Enderium Dust
-    inputs: [Thaumium Dust, Enderium Base Dust, Enderpearl Dust]
-    non_consumable: [Circuit (2)]
   - name: Mica Based Pulp
     inputs: [Sticky Resin, Mica Dust]
     non_consumable: [Circuit (2)]
@@ -204,9 +209,6 @@ rest:
     non_consumable: [Circuit (2)]
   - name: Mica Based Pulp
     inputs: [Raw Rubber Dust, Mica Dust]
-    non_consumable: [Circuit (2)]
-  - name: Enderium Base Dust
-    inputs: [Silver Dust, Tin Dust, Platinum Dust]
     non_consumable: [Circuit (2)]
   - name: Red Alloy Dust
     inputs: [Redstone Dust, Copper Dust]
@@ -236,7 +238,8 @@ rest:
     inputs: [Platinum Dust, Uranium 238 Dust]
     non_consumable: [Circuit (2)]
   - name: Maraging Steel 250 Dust
-    inputs: [Titanium Dust, Cobalt Dust, Nickel Dust, Molybdenum Dust, Steel Dust]
+    inputs:
+      [Titanium Dust, Cobalt Dust, Nickel Dust, Molybdenum Dust, Steel Dust]
     non_consumable: [Circuit (2)]
   - name: Naquadah Alloy Dust
     inputs: [Carbon Dust, Naquadah Dust, Trinium Dust]
@@ -251,7 +254,8 @@ rest:
     inputs: [Samarium Dust, Europium Dust, Osmiridium Dust, Naquadria Dust]
     non_consumable: [Circuit (2)]
   - name: Superconductor Base UHV Dust
-    inputs: [Americium Dust, Tritanium Dust, Cosmic Neutronium Dust, Draconium Dust]
+    inputs:
+      [Americium Dust, Tritanium Dust, Cosmic Neutronium Dust, Draconium Dust]
     non_consumable: [Circuit (2)]
 
     # No Circuit (No Fluid Input)
@@ -269,19 +273,44 @@ rest:
   - name: Raw Ademic Steel Dust
     inputs: [Steel Dust, Vanadiumsteel Dust, Damascus Steel Dust]
   - name: Circuit Compound MK3 Dust
-    inputs: [Indium Gallium Phosphide Dust, Dibismuthhydroborat Dust, Bismuth Telluride Dust]
+    inputs:
+      [
+        Indium Gallium Phosphide Dust,
+        Dibismuthhydroborat Dust,
+        Bismuth Telluride Dust,
+      ]
   - name: Babbit Alloy Dust
     inputs: [Tin Dust, Lead Dust, Antimony Dust, Arsenic Dust]
   - name: Wood's Glass Dust
     inputs: [Raw Silicon Dust, Barium Dust, Sodium Dust, Nickel Dust]
   - name: High Durability Compound Steel Dust
-    inputs: [Tungstensteel Dust, HSS-E Dust, HSS-G Dust, Ruridit Dust, Magneto Resonatic Dust, Plutonium 239]
+    inputs:
+      [
+        Tungstensteel Dust,
+        HSS-E Dust,
+        HSS-G Dust,
+        Ruridit Dust,
+        Magneto Resonatic Dust,
+        Plutonium 239,
+      ]
   - name: Magneto Resonatic Dust
-    inputs: [Prasiolite Dust, Bismuth Telluride Dust, Zirconia Dust, Magnetic Steel Dust]
+    inputs:
+      [
+        Prasiolite Dust,
+        Bismuth Telluride Dust,
+        Zirconia Dust,
+        Magnetic Steel Dust,
+      ]
   - name: Uranium Carbide-Thorium Mixture Dust
     inputs: [Thorium Dust, Thorium 232 Dust, Uranium 235 Dust, Carbon Dust]
   - name: Eglin Steel Dust
-    inputs: [Eglin Steel Base Compound Dust, Sulfur Dust, Raw Silicon Dust, Carbon Dust]
+    inputs:
+      [
+        Eglin Steel Base Compound Dust,
+        Sulfur Dust,
+        Raw Silicon Dust,
+        Carbon Dust,
+      ]
   - name: Samarium Chloride-Sodium Chloride Blend Dust
     inputs: [Samarium(III)-Chloride Dust, Salt Dust]
   - name: Electrotine Iron Compound
@@ -309,7 +338,18 @@ rest:
   - name: Inconel-690 Dust
     inputs: [Chrome Dust, Niobium Dust, Molybdenum Dust, Nichrome Dust]
   - name: Vibrant Alloy Dust
-    inputs: [Redstone Dust, Raw Silicon Dust, Coal Dust, Iron Dust, Silver Dust, Black Steel Dust, Endereye Dust, Chrome Dust, Gold Dust]
+    inputs:
+      [
+        Redstone Dust,
+        Raw Silicon Dust,
+        Coal Dust,
+        Iron Dust,
+        Silver Dust,
+        Black Steel Dust,
+        Endereye Dust,
+        Chrome Dust,
+        Gold Dust,
+      ]
   - name: Stellite Dust
     inputs: [Cobalt Dust, Chrome Dust, Manganese Dust, Titanium Dust]
   - name: Incoloy-MA956 Dust
@@ -317,11 +357,29 @@ rest:
   - name: White Metal Dust
     inputs: [Copper Dust, Antimony Dust, Platinum Dust, Tin Dust]
   - name: Energy Crystal Dust
-    inputs: [Aer Crystal Powder, Terra Crystal Powder, Ignis Crystal Powder, Aqua Crystal Powder]
+    inputs:
+      [
+        Aer Crystal Powder,
+        Terra Crystal Powder,
+        Ignis Crystal Powder,
+        Aqua Crystal Powder,
+      ]
   - name: Arcanite Dust
-    inputs: [Thorium 232 Dust, Energy Crystal Dust, Ordo Crystal Powder, Perditio Crystal Powder]
+    inputs:
+      [
+        Thorium 232 Dust,
+        Energy Crystal Dust,
+        Ordo Crystal Powder,
+        Perditio Crystal Powder,
+      ]
   - name: Titansteel Dust
-    inputs: [Tungsten Titanium Carbide Dust, Ignis Crystal Powder, Terra Crystal Powder, Perditio Crystal Powder]
+    inputs:
+      [
+        Tungsten Titanium Carbide Dust,
+        Ignis Crystal Powder,
+        Terra Crystal Powder,
+        Perditio Crystal Powder,
+      ]
   - name: Botmium Dust
     inputs: [Nitinol 60 Dust, Osmium Dust, Ruthenium Dust, Thallium Dust]
 
