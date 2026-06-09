@@ -61,6 +61,32 @@ def recipes_cmd(input_file: Path, output: Path | None) -> None:
     console.print(f"[dim]Output written to [bold italic]{output}[/bold italic][/dim]\n")
 
 
+@cli.command("import-recipes")
+@click.argument("json_file", metavar="FILE", type=click.Path(exists=True, path_type=Path))
+@click.option(
+    "--output",
+    "-o",
+    metavar="FILE",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Output YAML file (default: outputs/import_recipes/<stem>.yaml).",
+)
+def import_recipes_cmd(json_file: Path, output: Path | None) -> None:
+    """Import recipes from a bookmark_export.json dump into YAML format.
+
+    Reads the JSON produced by the Recipe Exporter mod and writes a staging
+    YAML file ready to paste into inputs/recipes/<machine>.yaml.
+    """
+    from .modes.import_recipes import run
+
+    console = Console()
+
+    if output is None:
+        output = Path("outputs/import_recipes") / f"{json_file.stem}.yaml"
+
+    run(json_file, output, console)
+
+
 @cli.command("tint")
 @click.argument("texture", metavar="FILE", type=click.Path(exists=True, path_type=Path))
 @click.argument("color", metavar="COLOR")
