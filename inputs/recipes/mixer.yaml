@@ -449,3 +449,64 @@ rest:
   - name: Anointing Paste
     inputs: [Belladonna Seeds, Mandrake Seends, Water Artichoke Seeds, Snowbell Seeds]
     fluid_inputs: [Water]
+
+  # Circuit 4
+  - name: Glass Dust
+    inputs: [Quartzite Dust, Flint Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Glass Dust
+    inputs: [Flint Dust, Quartz Sand]
+    non_consumable: [Circuit (4)]
+
+  - name: Null Catalyst
+    inputs: [Null Catalyst, Nether Star Dust, Blaze Powder, Magma Cream]
+    non_consumable: [Circuit (4)]
+
+  - name: Zircaloy-4 Dust
+    inputs: [Chrome Dust, Iron Dust, Tin Dust, Zirconium Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Enriched Naquadah Alloy Dust
+    inputs: [Enriched Naquadah Dust, Tritanium Dust, Black Plutonium Dust, Californium Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Raw Fluorophlogopite Dust
+    inputs: [Potassium Carbonate Dust, Alumina Dust, Quartz Sand, Potassiumfluorosilicate Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Sterling Silver Dust
+    inputs: [Copper Dust, Silver Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Raw Fluorophlogopite Dust
+    inputs: [Potassium Carbonate Dust, Certus Quartz Dust, Alumina Dust, Potassiumfluorosilicate Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Raw Fluorophlogopite Dust
+    inputs: [Potassium Carbonate Dust, Quartzite Dust, Alumina Dust, Potassiumfluorosilicate Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Raw Fluorophlogopite Dust
+    inputs: [Potassium Carbonate Dust, Nether Quartz Dust, Alumina Dust, Potassiumfluorosilicate Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Fluxed Electrum Dust
+    inputs: [Soldering Alloy Dust, Infused Gold Dust, Naquadah Dust, Astral Silver Dust, Red Steel Dust, Blue Steel Dust, Sterling Silver Dust, Rose Gold Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Enriched Holmium Dust
+    inputs: [Holmium Dust, Enriched Naquadah Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Cerium-doped Lutetium Aluminium Oxygen Blend Dust
+    inputs: [Cerium Dust, Lutetium Dust, Green Sapphire Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Cerium-doped Lutetium Aluminium Oxygen Blend Dust
+    inputs: [Cerium Dust, Lutetium Dust, Alumina Dust]
+    non_consumable: [Circuit (4)]
+
+  - name: Cerium-doped Lutetium Aluminium Oxygen Blend Dust
+    inputs: [Cerium Dust, Lutetium Dust, Sapphire Dust]
+    non_consumable: [Circuit (4)]
